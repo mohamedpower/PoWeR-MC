@@ -47,6 +47,27 @@ return;
 
 
 
+client.on('message', function(msg) {
+         var prefix = "+"
+    if(msg.content.startsWith (prefix  + 'server')) {
+      let embed = new Discord.RichEmbed()
+      .setColor('RANDOM')
+      .setThumbnail(msg.guild.iconURL)
+      .setTitle(Showing Details Of  **${msg.guild.name}*)
+      .addField(':globe_with_meridians: نوع السيرفر',[** __${msg.guild.region}__ **],true)
+      .addField(':medal: الرتب',[** __${msg.guild.roles.size}__ **],true)
+      .addField(':red_circle: عدد الاعضاء',[** __${msg.guild.memberCount}__ **],true)
+      .addField(':large_blue_circle: عدد الاعضاء الاونلاين',[** __${msg.guild.members.filter(m=>m.presence.status == 'online').size}__ **],true)
+      .addField(':pencil: الرومات الكتابية',[** __${msg.guild.channels.filter(m => m.type === 'text').size}__** ],true)
+      .addField(':microphone: رومات الصوت',[** __${msg.guild.channels.filter(m => m.type === 'voice').size}__ **],true)
+      .addField(':crown: الأونـر',**${msg.guild.owner}**,true)
+      .addField(':id: ايدي السيرفر',**${msg.guild.id}**,true)
+      .addField(':date: تم عمل السيرفر في',msg.guild.createdAt.toLocaleString())
+      msg.channel.send({embed:embed});
+    }
+  });
+
+
 
 
 
