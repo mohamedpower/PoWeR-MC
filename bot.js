@@ -32,7 +32,7 @@ return;
             var bc = new Discord.RichEmbed()
             .addField('» Server :', ${message.guild.name})
             .addField('» اSender : ', ${message.author.username}#${message.author.discriminator})
-    .setFooter('Super Bot','https://cdn.discordapp.com/avatars/439427357175185408/e757876a5561c2d4682fd664119568f2.jpg?size=128%27)
+    .setFooter('PoWeR MC Bot','https://cdn.discordapp.com/avatars/439427357175185408/e757876a5561c2d4682fd664119568f2.jpg?size=128%27)
             .addField(' » Message : ', args)
             .setColor('#ff0000')
             // m.send([${m}]);
