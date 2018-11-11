@@ -289,7 +289,6 @@ if(!message.guild.member(client.user).hasPermission("MUTE_MEMBERS")) return mess
  
 });
 
-
 client.on('message', message => {
 var prefix = "+";
 
