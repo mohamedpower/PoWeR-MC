@@ -48,7 +48,4 @@ return;
 
 
 
-
-
-
-client.login("NTA4MDAzNjExNDc3ODAzMDE5.DskbaQ.7FLoXhRkh3006BhpJ_yMus89wWM")
+client.login(process.env.BOT_TOKEN);
