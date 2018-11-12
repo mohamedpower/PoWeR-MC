@@ -12,6 +12,7 @@ client.user.setGame(`PoWeR MC`,"http://twitch.tv/Death Shop")
 client.user.setStatus("dnd")
 });
 
+
 client.on('message' , message => {
 if(message.content === '^help') {
   var EsTeKnAN = new Discord.RichEmbed()
