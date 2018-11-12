@@ -111,25 +111,22 @@ client.on('message', function(message) {
     }
 
 });
-	
-  client.on('message', message => {
-    if (message.content.startsWith("+invite")) {
 
-  message.channel.createInvite({
-        thing: true,
-        maxUses: 25,
-        maxAge: 86400
-    }).then(invite =>
-      message.author.sendMessage(invite.url)
-    )
-  message.channel.send("**تم ارسال الرابط برسالة خاصة**")
+client.on('message' , message => {
 
-message.author.send(`**مدة الرابط : يـوم
-دد استخدامات الرابط : 25**`)
-
-    }
+    if (message.content === "+invite") {
+        if(!message.channel.guild) return message.reply('**الآمر فقط في السيرفرات**');
+     const embed = new Discord.RichEmbed()
+ .setColor("RANDOM")
+ .setThumbnail(client.user.avatarURL)     
+ .setDescription("Add me" + `
+ **
+رابط البوت | https://discordapp.com/api/oauth2/authorize?client_id=508003611477803019&permissions=8&scope=bot
+ **
+`);
+  message.author.sendEmbed(embed);
+   }
 });
-
 
 client.on('message', message => {
 
