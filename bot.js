@@ -13,31 +13,6 @@ client.user.setStatus("dnd")
 });
 
 
-client.on('message' , message => {
-if(message.content === '^help') {
-  var EsTeKnAN = new Discord.RichEmbed()
-  .setColor('RANDOM')
-message.author.send(`
-***__وصف عن البوت__***
-**
-─════════════ {✯اوامر البوت✯} ════════════─
-+help/ see you commands
-+umc / Unlock Room
-+server / Info YourServer
-+clear / Clear Chat
-+invite/ invite bot to your server
-+Kick / Kick member from your server
-+Ban / Baneed Member from your server
-+Mute / Give Member Mute 
-+unmute / unmute from member
-+bc/ send massege to all members
-+new (reason)/ make ticket
-+rules/ see you rules
-─════════════ {✯ By M.P.YT✯} ════════════─
-**
-`);
-}
-})
 
 client.on('message', message => {
             if (message.content.startsWith("+rules")) {
