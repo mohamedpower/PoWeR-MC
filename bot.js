@@ -113,7 +113,7 @@ client.on('message', function(message) {
 });
 	
   client.on('message', message => {
-    if (message.content.startsWith("+link")) {
+    if (message.content.startsWith("+invite")) {
 
   message.channel.createInvite({
         thing: true,
