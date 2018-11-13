@@ -26,7 +26,7 @@ client.on('message', function(message) {
 
 client.on('message' , message => {
 
-    if (message.content === "$invite") {
+    if (message.content === "+invite") {
         if(!message.channel.guild) return message.reply('**الآمر فقط في السيرفرات**');
      const embed = new Discord.RichEmbed()
  .setColor("RANDOM")
