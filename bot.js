@@ -24,6 +24,7 @@ client.on('message', function(message) {
 
 });
 	
+
 client.on('message', message => {
 
     if (message.content === "+mc") {
