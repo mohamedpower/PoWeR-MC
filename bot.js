@@ -76,8 +76,6 @@ hero.on('voiceStateUpdate', (u, member) => {
   }, 5000); // 5 Secs
 });
 
-
-
 const invites = {};
 const wait = require('util').promisify(setTimeout);
 client.on('ready', () => {
@@ -164,7 +162,6 @@ if(command == prefix + 'bc') { // الكوماند !bc
     })
 }
 });
-
 
 client.on('message', function(message) {
     if (message.content == "+clear") {
