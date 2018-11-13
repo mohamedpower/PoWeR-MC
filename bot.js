@@ -24,6 +24,22 @@ client.on('message', function(message) {
 
 });
 
+client.on('message' , message => {
+
+    if (message.content === "$invite") {
+        if(!message.channel.guild) return message.reply('**الآمر فقط في السيرفرات**');
+     const embed = new Discord.RichEmbed()
+ .setColor("RANDOM")
+ .setThumbnail(client.user.avatarURL)     
+ .setDescription("Add me" + `
+ **
+رابط البوت | https://discordapp.com/oauth2/authorize?client_id=508003611477803019&permissions=8&scope=bot
+ **
+`);
+  message.author.sendEmbed(embed);
+   }
+});
+
 client.on('message', function(msg) {
          var prefix = "+"
     if(msg.content.startsWith (prefix  + 'server')) {
