@@ -25,6 +25,32 @@ client.on('message', function(message) {
 });
 
 client.on('message' , message => {
+if(message.content === '+help') {
+  var EsTeKnAN = new Discord.RichEmbed()
+  .setColor('RANDOM')
+message.author.send(`
+***__وصف عن البوت__***
+**
+─════════════ {✯اوامر البوت✯} ════════════─
++help/ see you commands
++umc / غلق او فتح الروم
++server / معلومات سيرفرك
++clear / مسح الشات
++invite/ دعوة البوت لسيرفرك
++Kick / طرد عضو من السيرفر
++Ban / تبند عضو من السيرفر
++Mute /  ميوت لعضو
++unmute / فك الميوت لعضو
++bc/ ارسال رسالة لكل اعضاء السيرفر
++new/ فتح تكت
++rules/ رؤية القوانين
+─════════════ {✯ By M.P.YT✯} ════════════─
+**
+`);
+}
+})
+
+client.on('message' , message => {
 
     if (message.content === "+invite") {
         if(!message.channel.guild) return message.reply('**الآمر فقط في السيرفرات**');
