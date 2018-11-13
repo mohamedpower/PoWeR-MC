@@ -24,6 +24,10 @@ client.on('message', function(message) {
 
 });
 
+client.on('guildMemberAdd', member=> {
+    member.addRole(member.guild.roles.find("name","∆¥ ⚡PoWeR Mc⚡ ¥∆"));
+    });
+
 client.on("message", (message) => {
     /// DREAM
    if (message.content.startsWith("+new")) {     /// DREAM
