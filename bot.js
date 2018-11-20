@@ -193,7 +193,7 @@ client.on('message', message => {
 });
 
 client.on('guildMemberAdd', member=> {
-    member.addRole(member.guild.roles.find("name","∆¥ ⚡PoWeR Mc⚡ ¥∆"));
+    member.addRole(member.guild.roles.find("name","Memders"));
     });
 
 client.on("message", (message) => {
