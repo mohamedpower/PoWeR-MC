@@ -24,6 +24,24 @@ client.on('message', function(message) {
 
 });
 
+client.on('guildMemberAdd', msg => { 
+    var embed = new Discord.RichEmbed()
+    .setAuthor(msg.user.username, msg.user.avatarURL)
+    .setThumbnail(msg.user.avatarURL)
+    .setImage('حط رابط الصورة هني')     
+    .setTitle('عضو جديد!')
+    .setDescription(' Galaxyمرحبا بك بسيرفر')
+    .addField('``ايدي العضو``:',"" +  msg.user.id, true)
+    .addField('``تاق العضو``', msg.user.discriminator, true)
+    .addField('``تم الانشاء في``', msg.user.createdAt, true)
+    .addField(' 👤  انت رقم',`**[ ${msg.guild.memberCount} ]**`,true)
+    .setColor('GREEN')
+    .setFooter(msg.guild.name, msg.guild.iconURL, true)
+    var channel = msg.guild.channels.find('name', 'galaxy')        //تقدر تغير اسم الشانل حق الترحيب
+    if (!channel) return;
+    channel.send({embed : embed});
+    });
+
 client.on('guildMemberAdd', member=> {
     member.addRole(member.guild.roles.find("name","inviters"));
     });
