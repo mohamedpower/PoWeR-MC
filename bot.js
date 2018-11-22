@@ -28,7 +28,7 @@ client.on('guildMemberAdd', msg => {
     var embed = new Discord.RichEmbed()
     .setAuthor(msg.user.username, msg.user.avatarURL)
     .setThumbnail(msg.user.avatarURL)
-    .setImage('https://cdn.discordapp.com/attachments/408047310665154561/514981876897808389/SUNRISEEARTH017_high-res.jpg')     
+    .setImage('رابط الصورة')     
     .setTitle('عضو جديد!')
     .setDescription(' Galaxyمرحبا بك بسيرفر')
     .addField('``ايدي العضو``:',"" +  msg.user.id, true)
