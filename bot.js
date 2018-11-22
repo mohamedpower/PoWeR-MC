@@ -211,7 +211,7 @@ client.on('message', message => {
 });
 
 client.on('guildMemberAdd', member=> {
-    member.addRole(member.guild.roles.find("name","Memders"));
+    member.addRole(member.guild.roles.find("name","GC I Galaxy"));
     });
 
 client.on("message", (message) => {
