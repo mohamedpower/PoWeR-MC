@@ -11,8 +11,6 @@ client.user.setGame(`Galaxy`,"http://twitch.tv/Death Shop")
 client.user.setStatus("dnd")
 });
 
-
-
 client.on('guildMemberAdd', msg => { 
     var embed = new Discord.RichEmbed()
     .setAuthor(msg.user.username, msg.user.avatarURL)
