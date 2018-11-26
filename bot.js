@@ -8,9 +8,139 @@ client.on('ready', () => {
       console.log(`ON ${client.guilds.size} Servers '     Script By : EX Clan ' `);
     console.log(`----------------`);
   console.log(`Logged in as ${client.user.tag}!`);
-client.user.setGame(`Death Shop`,"http://twitch.tv/Death Shop")
+client.user.setGame(`Galaxy`,"http://twitch.tv/Death Shop")
 client.user.setStatus("dnd")
 });
+
+client.on("message", (message) => {
+    /// DREAM
+   if (message.content.startsWith("+new")) {     /// DREAM
+        const reason = message.content.split(" ").slice(1).join(" ");     /// DREAM
+        if (!message.guild.roles.exists("name", "Support Team")) return message.channel.send(`لازم تسوي رتبة اسمها \`Support Team\` وتنطي البوت ادمنيتر حتا يقدر يسوي الرومات ويعدل برمشنات`);
+        if (message.guild.channels.exists("name", "ticket-{message.author.id}" + message.author.id)) return message.channel.send(`You already have a ticket open.`);    /// ALPHA CODES
+        message.guild.createChannel(`ticket-${message.author.username}`, "text").then(c => {
+            let role = message.guild.roles.find("name", "Support Team");
+            let role2 = message.guild.roles.find("name", "@everyone");
+            c.overwritePermissions(role, {
+                SEND_MESSAGES: true,
+                READ_MESSAGES: true
+            });    /// ALPHA CODES
+            c.overwritePermissions(role2, {
+                SEND_MESSAGES: false,
+                READ_MESSAGES: false
+            });
+            c.overwritePermissions(message.author, {
+                SEND_MESSAGES: true,
+                READ_MESSAGES: true
+            });
+            message.channel.send(`:white_check_mark: تم انشاء تذكرتك, #${c.name}.`);
+            const embed = new Discord.RichEmbed()
+                .setColor(0xCF40FA)
+                .addField(`Hey ${message.author.username}!`, `تم فتح تذكرة الرجاء انتظار الى حين يأتي مشرف ويقوم بلرد عليك`)
+                .setTimestamp();
+            c.send({
+                embed: embed
+            });
+        }).catch(console.error);
+    }
+ 
+ 
+  if (message.content.startsWith("+close")) {
+        if (!message.channel.name.startsWith(`ticket-`)) return message.channel.send(`You can't use the close command outside of a ticket channel.`);
+ 
+       message.channel.send(`هل انت متأكد من اقفالك للتذكرة اذا متأكد اكتب +confirm`)
+           .then((m) => {
+               message.channel.awaitMessages(response => response.content === '+confirm', {
+                       max: 1,
+                       time: 10000,
+                       errors: ['time'],
+                   })    /// DREAM
+                   .then((collected) => {
+                       message.channel.delete();
+                   })    /// DREAM
+                   .catch(() => {
+                       m.edit('Ticket close timed out, the ticket was not closed.').then(m2 => {
+                           m2.delete();
+                       }, 3000);
+                   });
+           });
+   }
+ 
+});
+
+client.on('message', message => {
+
+    var prefix = '+'; // هنا تقدر تغير البرفكس
+
+var command = message.content.split(" ")[0];
+
+if(command == prefix + 'bc') { // الكوماند !bc
+
+    var args = message.content.split(' ').slice(1).join(' ');
+
+    if(message.author.bot) return;
+
+    if(!args) return message.channel.send(`**➥ Useage:** ${prefix}bc كلامك`);
+
+    
+
+    let bcSure = new Discord.RichEmbed()
+
+    .setTitle(`📬 **هل انت متأكد انك تريد ارسال رسالتك الى** ${message.guild.memberCount} **عضو**`)
+
+    .setThumbnail(client.user.avatarURL)
+
+    .setColor('RANDOM')
+
+    .setDescription(`**\n✉ ➥ رسالتك**\n\n${args}`)
+
+    .setTimestamp()
+
+    .setFooter(message.author.tag, message.author.avatarURL)
+
+    
+
+    message.channel.send(bcSure).then(msg => {
+
+        msg.react('✅').then(() => msg.react('❎'));
+
+        message.delete();
+
+        
+
+        
+
+        let yesEmoji = (reaction, user) => reaction.emoji.name === '✅'  && user.id === message.author.id;
+
+        let noEmoji = (reaction, user) => reaction.emoji.name === '❎' && user.id === message.author.id;
+
+        
+
+        let sendBC = msg.createReactionCollector(yesEmoji);
+
+        let dontSendBC = msg.createReactionCollector(noEmoji);
+
+        
+
+        sendBC.on('collect', r => {
+
+            message.guild.members.forEach(member => {
+
+                member.send(args.replace(`[user]`, member)).catch();
+
+                if(message.attachments.first()){
+
+                    member.sendFile(message.attachments.first().url).catch();
+
+                }
+
+      
+
+client.on('guildMemberAdd', member=> {
+
+    member.addRole(member.guild.roles.find("name","GC I Galaxy"));
+
+    });
 
 client.on("message", async message => {
         if(!message.channel.guild) return;
