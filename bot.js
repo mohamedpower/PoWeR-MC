@@ -74,7 +74,7 @@ message.author.send(`
 **
 `);
 }
-})
+});
 
 client.on('message' , message => {
 
