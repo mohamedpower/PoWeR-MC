@@ -24,7 +24,6 @@ if(command === "top") {
 
         .setColor(0x00AE86);
 
-  
 
       for(const data of top10) {
 
