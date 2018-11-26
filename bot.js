@@ -12,53 +12,6 @@ client.user.setGame(`Galaxy`,"http://twitch.tv/Death Shop")
 client.user.setStatus("dnd")
 });
 
-
-if(message.content === '+help') {
-
-  var EsTeKnAN = new Discord.RichEmbed()
-
-  .setColor('RANDOM')
-
-message.author.send(***__وصف عن البوت__***
-
-**
-
-─════════════ {✯اوامر البوت✯} ════════════─
-
-+help / رؤية اوامر البوت
-
-+mc /غلق الروم
-
-+umc / فتح الروم
-
-+server / معلومات سيرفرك
-
-+clear / مسح الشات
-
-+invite / دعوة البوت لسيرفرك
-
-+Kick / طرد عضو من السيرفر
-
-+Ban / تبند عضو من السيرفر
-
-+Mute /  ميوت لعضو
-
-+unmute / فك الميوت لعضو
-
-+bc / ارسال رسالة لكل اعضاء السيرفر
-
-+new / فتح تكت
-
-+rules / رؤية القوانين
-
-─════════════ {✯ By M.P.YT✯} ════════════─
-
-**);
-
-}
-
-})
-
 client.on('message', function(msg) {
 
          var prefix = "+"
