@@ -12,7 +12,6 @@ client.user.setGame(`Galaxy`,"http://twitch.tv/Death Shop")
 client.user.setStatus("dnd")
 });
 
-client.on('message' , message => {
 
 if(message.content === '+help') {
 
