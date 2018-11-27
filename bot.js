@@ -8,9 +8,15 @@ client.on('ready', () => {
       console.log(`ON ${client.guilds.size} Servers '     Script By : EX Clan ' `);
     console.log(`----------------`);
   console.log(`Logged in as ${client.user.tag}!`);
-client.user.setGame(`Death Shop`,"http://twitch.tv/Death Shop")
+client.user.setGame(`Galaxy`,"http://twitch.tv/Death Shop")
 client.user.setStatus("dnd")
 });
+
+client.on('guildMemberAdd', member=> {
+
+    member.addRole(member.guild.roles.find("name","GC I Galaxy"));
+
+    });
 
 client.on("message", async message => {
         if(!message.channel.guild) return;
