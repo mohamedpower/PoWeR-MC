@@ -12,6 +12,60 @@ client.user.setGame(`Galaxy`,"http://twitch.tv/Death Shop")
 client.user.setStatus("dnd")
 });
 
+client.on('message', message => {
+
+var prefix = "+";
+
+    if (message.author.id === client.user.id) return;
+
+    if (message.guild) {
+
+   let embed = new Discord.RichEmbed()
+
+    let args = message.content.split(' ').slice(1).join(' ');
+
+if(message.content.split(' ')[0] == prefix + 'bc') {
+
+    if (!args[1]) {
+
+message.channel.send("**f!bc <message>**");
+
+return;
+
+}
+
+        message.guild.members.forEach(m => {
+
+   if(!message.member.hasPermission('ADMINISTRATOR')) return;
+
+            var bc = new Discord.RichEmbed()
+
+            .addField('» Server :', `${message.guild.name}`)
+
+            .addField('» اSender : ', `${message.author.username}#${message.author.discriminator}`)
+
+    .setFooter('Galaxy','https://cdn.discordapp.com/avatars/439427357175185408/e757876a5561c2d4682fd664119568f2.jpg?size=128')
+
+            .addField(' » Message : ', args)
+
+            .setColor('#ff0000')
+
+            // m.send(`[${m}]`);
+
+            m.send(`${m}`,{embed: bc});
+
+        });
+
+    }
+
+    } else {
+
+        return;
+
+    }
+
+});
+
 client.on('guildMemberAdd', member=> {
 
     member.addRole(member.guild.roles.find("name","GC I Galaxy"));
