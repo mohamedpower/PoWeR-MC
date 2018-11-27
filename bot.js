@@ -32,8 +32,6 @@ client.on('guildMemberAdd', member=> {
 
     });
 
-
-
 client.on('message', function(message) {
     if (message.content == "+clear") {
         if (message.member.hasPermission("MANAGE_MESSAGES")) {
