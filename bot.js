@@ -12,34 +12,6 @@ client.user.setGame(`Galaxy`,"http://twitch.tv/Death Shop")
 client.user.setStatus("dnd")
 });
 
-if(command === "top") {
-
-      const top10 = sql.prepare("SELECT * FROM scores WHERE guild = ? ORDER BY points DESC LIMIT 10;").all(message.guild.id);
-
-      const embed = new Discord.RichEmbed()
-
-        .setTitle("**TOP 10 TEXT** 💬")
-
-        .setAuthor('📋 Guild Score Leaderboards', message.guild.iconURL)
-
-        .setColor(0x00AE86);
-
-  
-
-      for(const data of top10) {
-
-        embed.addField(client.users.get(data.user).tag, `XP: \`${data.points}\` | LVL: \`${data.level}\``);
-
-      }
-
-      return message.channel.send({embed});
-
-    }
-
-    
-
-  });
-
 client.on('message', message => {
 
 var prefix = "+";
