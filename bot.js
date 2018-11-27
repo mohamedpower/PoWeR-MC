@@ -12,20 +12,6 @@ client.user.setGame(`Galaxy`,"http://twitch.tv/Death Shop")
 client.user.setStatus("dnd")
 });
 
-client.on('message' , message => {
-
-    if (message.content === "+invite") {
-        if(!message.channel.guild) return message.reply('الآمر فقط في السيرفرات');
-     const embed = new Discord.RichEmbed()
- .setColor("RANDOM")
- .setThumbnail(client.user.avatarURL)     
- .setDescription("Add me" + **
-رابط البوت | https://discordapp.com/api/oauth2/authorize?client_id=514570654616649729&permissions=8&scope=bot
- **);
-  message.author.sendEmbed(embed);
-   }
-});
-
 client.on('guildMemberAdd', member=> {
 
     member.addRole(member.guild.roles.find("name","GC I Galaxy"));
