@@ -12,6 +12,24 @@ client.user.setGame(`Galaxy`,"http://twitch.tv/Death Shop")
 client.user.setStatus("dnd")
 });
 
+client.on('guildMemberAdd', msg => { 
+    var embed = new Discord.RichEmbed()
+    .setAuthor(msg.user.username, msg.user.avatarURL)
+    .setThumbnail(msg.user.avatarURL)
+    .setImage('https://cdn.discordapp.com/attachments/515688291526246415/517125854585946113/20181127_173343.jpg')     
+    .setTitle('عضو جديد!')
+    .setDescription(' Galaxy مرحبا بك في سيرفر')
+    .addField('ايدي العضو:',"" +  msg.user.id, true)
+    .addField('تاق العضو', msg.user.discriminator, true)
+    .addField('تم الانشاء في', msg.user.createdAt, true)
+    .addField(' bust_in_silhouette  انت رقم',**[ ${msg.guild.memberCount} ]**,true)
+    .setColor('GREEN')
+    .setFooter(msg.guild.name, msg.guild.iconURL, true)
+    var channel = msg.guild.channels.find('name', 'galaxy')        //تقدر تغير اسم الشانل حق الترحيب
+    if (!channel) return;
+    channel.send({embed : embed});
+    });
+
 client.on('message', message => {
 
 var prefix = "+";
