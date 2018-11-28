@@ -28,6 +28,7 @@ client.on('guildMemberAdd', msg => {
     var channel = msg.guild.channels.find('name', 'galaxy')        //تقدر تغير اسم الشانل حق الترحيب
     if (!channel) return;
     channel.send({embed : embed});
+   
     });
 
 client.on('message', message => {
