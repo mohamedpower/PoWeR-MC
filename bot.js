@@ -30,51 +30,53 @@ client.on('guildMemberAdd', msg => {
     channel.send({embed : embed});
     });
 
-client.on('message', message => {
+client.on('message',async message => {
 
-var prefix = "+";
+  if(message.author.bot || message.channel.type === '*bc') return;
 
-    if (message.author.id === client.user.id) return;
+  let args = message.content.split(' ');
 
-    if (message.guild) {
+  if(args[0] === `+bc`) {
 
-   let embed = new Discord.RichEmbed()
+    if(!message.member.hasPermission("MANAGE_GUILD")) return message.channel.send('- **أنت لا تملك الصلاحيات اللازمة لأستخدام هذا الأمر**');
 
-    let args = message.content.split(' ').slice(1).join(' ');
+    if(!args[1]) return message.channel.send('- **يجب عليك كتابة الرسالة بعد الأمر**');
 
-if(message.content.split(' ')[0] == prefix + 'bc') {
+ 
 
-    if (!args[1]) {
+    let msgCount = 0;
 
-message.channel.send("**+bc <message>**");
+    let errorCount = 0;
 
-return;
+    let successCount = 0;
 
-}
+    message.channel.send(`**- [ :bookmark: :: ${msgCount} ] ・عدد الرسائل المرسلة**\n**- [ :inbox_tray: :: ${successCount} ] ・عدد الرسائل المستلمة**\n**- [ :outbox_tray: :: ${errorCount} ]・عدد الرسائل الغير مستلمة**`).then(msg => {
 
-       
-   message.guild.members.forEach(m => {
+      message.guild.members.forEach(g => {
 
-   if(!message.member.hasPermission('ADMINISTRATOR')) return;
+        g.send(args.slice(1).join(' ')).then(() => {
 
-            var bc = new Discord.RichEmbed()
-            .addField(' » Message : ', args)
-            
-            .setColor('#ff0000')
+          successCount++;
 
-            // m.send(`[${m}]`);
+          msgCount++;
 
-            m.send(`${m}`,{embed: bc});
+          msg.edit(`**- [ :bookmark: :: ${msgCount} ] ・عدد الرسائل المرسلة**\n**- [ :inbox_tray: :: ${successCount} ] ・عدد الرسائل المستلمة**\n**- [ :outbox_tray: :: ${errorCount} ]・عدد الرسائل الغير مستلمة**`);
+
+        }).catch(e => {
+
+          errorCount++;
+
+          msgCount++;
+
+          msg.edit(`**- [ :bookmark: :: ${msgCount} ] ・عدد الرسائل المرسلة**\n**- [ :inbox_tray: :: ${successCount} ] ・عدد الرسائل المستلمة**\n**- [ :outbox_tray: :: ${errorCount} ]・عدد الرسائل الغير مستلمة**`);
 
         });
 
-    }
+      });
 
-    } else {
+    });
 
-        return;
-
-    }
+  }
 
 });
 
