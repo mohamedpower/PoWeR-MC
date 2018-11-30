@@ -22,7 +22,7 @@ client.on('guildMemberAdd', member => { //LAST CODES -HONRAR-
 
     const inviter = client.users.get(invite.inviter.id);
 
-    const stewart = member.guild.channels.find("name", "welcome");
+    const stewart = member.guild.channels.find("name", "invite-checker");
 
      stewart.send(`<@${member.user.id}> تمت الدعوه من <@${inviter.id}>`);
 
