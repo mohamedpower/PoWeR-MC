@@ -70,24 +70,6 @@ client.on('message', function(msg) {
 
   });
 
-client.on('guildMemberAdd', msg => { 
-    var embed = new Discord.RichEmbed()
-    .setAuthor(msg.user.username, msg.user.avatarURL)
-    .setThumbnail(msg.user.avatarURL)
-    .setImage('https://cdn.discordapp.com/attachments/512058131698810898/517130817659731968/20181127_173343.jpg')     
-    .setTitle('عضو جديد!')
-    .setDescription('Galaxy مرحبا بك في سيرفر')
-    .addField('``ايدي العضو``:',"" +  msg.user.id, true)
-    .addField('``تاق العضو``', msg.user.discriminator, true)
-    .addField('``تم الانشاء في``', msg.user.createdAt, true)
-    .addField(' 👤  انت رقم',`**[ ${msg.guild.memberCount} ]**`,true)
-    .setColor('GREEN')
-    .setFooter(msg.guild.name, msg.guild.iconURL, true)
-    var channel = msg.guild.channels.find('name', 'galaxy')        //تقدر تغير اسم الشانل حق الترحيب
-    if (!channel) return;
-    channel.send({embed : embed});
-    });
-
 client.on('message',async message => {
 
   if(message.author.bot || message.channel.type === '*bc') return;
