@@ -12,6 +12,80 @@ client.user.setGame(`Vortex`,"http://twitch.tv/Death Shop")
 client.user.setStatus("dnd")
 });
 
+client.on('message' , message => {
+
+    if (message.content === "+invite") {
+
+        if(!message.channel.guild) return message.reply('الآمر فقط في السيرفرات');
+
+     const embed = new Discord.RichEmbed()
+
+ .setColor("RANDOM")
+
+ .setThumbnail(client.user.avatarURL)     
+
+ .setDescription("Add me" + **
+
+رابط البوت | https://discordapp.com/api/oauth2/authorize?client_id=543254681909198859&permissions=8&scope=bot
+
+ **);
+
+  message.author.sendEmbed(embed);
+
+   }
+
+});
+
+client.on('message' , message => {
+
+if(message.content === '+help') {
+
+  var EsTeKnAN = new Discord.RichEmbed()
+
+  .setColor('RANDOM')
+
+message.author.send(`
+
+***__وصف عن البوت__***
+
+**
+
+─════════════ {✯اوامر البوت✯} ════════════─
+
++help / رؤية اوامر البوت
+
++mc /غلق الروم
+
++umc / فتح الروم
+
++server / معلومات سيرفرك
+
++clear / مسح الشات
+
++invite / دعوة البوت لسيرفرك
+
++Kick / طرد عضو من السيرفر
+
++Ban / تبند عضو من السيرفر
+
++Mute /  ميوت لعضو
+
++unmute / فك الميوت لعضو
+
++bc / ارسال رسالة لكل اعضاء السيرفر
+
++rules / رؤية القوانين
+
+─════════════ {✯ By M.P.YT✯} ════════════─
+
+**
+
+`);
+
+}
+
+})
+
 client.on('guildMemberAdd', member => { //LAST CODES -HONRAR-
 
   member.guild.fetchInvites().then(guildInvites => {
