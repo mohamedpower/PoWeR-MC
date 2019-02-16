@@ -27,7 +27,6 @@ client.on('message' , message => {
  .setDescription("Add me" + **
 
 رابط البوت | https://discordapp.com/api/oauth2/authorize?client_id=543254681909198859&permissions=8&scope=bot
-
  **);
 
   message.author.sendEmbed(embed);
