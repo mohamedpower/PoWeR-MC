@@ -84,7 +84,7 @@ message.author.send(`
 
 }
 
-})
+});
 
 client.on('guildMemberAdd', member => { //LAST CODES -HONRAR-
 
